@@ -25,6 +25,14 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
+    
+    @is_teacher = person_params[:is_teacher]
+    if @is_teacher == "Si"
+      @person.is_teacher = true
+    else
+      @person.is_teacher = false
+    end
+    
 
     respond_to do |format|
       if @person.save
@@ -69,6 +77,6 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:first_name, :last_name, :email)
+      params.require(:person).permit(:first_name, :last_name, :email, :is_teacher)
     end
 end

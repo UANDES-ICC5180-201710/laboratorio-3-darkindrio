@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331113520) do
+ActiveRecord::Schema.define(version: 20170401193737) do
+
+  create_table "add_quantity_column_to_courses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "title"
@@ -18,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170331113520) do
     t.integer  "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "quantity"
     t.index ["person_id"], name: "index_courses_on_person_id"
   end
 
@@ -36,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170331113520) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "is_teacher"
   end
 
 end

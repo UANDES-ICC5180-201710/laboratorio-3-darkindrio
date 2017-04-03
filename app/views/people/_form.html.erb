@@ -25,6 +25,10 @@
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
+  <div class="field">
+    <h4>  Es profesor </h4>
+    <%= f.select :is_teacher, options_for_select(["Si","no"]) %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

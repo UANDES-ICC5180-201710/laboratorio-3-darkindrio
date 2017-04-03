@@ -1,0 +1,2 @@
+class AddQuantityColumnToCourse < ApplicationRecord
+end

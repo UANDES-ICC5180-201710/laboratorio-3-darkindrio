@@ -15,6 +15,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    puts Person.where("is_teacher == ?",true)
   end
 
   # GET /courses/1/edit
@@ -76,6 +77,6 @@ class CoursesController < ApplicationController
         teacher = nil
       end
 
-      params.require(:course).permit(:title, :code).merge(:teacher => teacher)
+      params.require(:course).permit(:title, :code, :quantity).merge(:teacher => teacher)
     end
 end
